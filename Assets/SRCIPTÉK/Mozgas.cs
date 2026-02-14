@@ -14,7 +14,7 @@ public class NewMonoBehaviourScript1 : MonoBehaviour
     {
         MozgasEH = Input.GetAxis("Horizontal");
         MozgasJB = Input.GetAxis("Vertical");
-        transform.Translate(MozgasEH * Time.deltaTime, 0, MozgasJB * Time.deltaTime);
+        transform.Translate( MozgasEH * Time.deltaTime , 0, MozgasJB * Time.deltaTime);
 
     }
 }
