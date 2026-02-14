@@ -12,8 +12,8 @@ public class NewMonoBehaviourScript1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MozgasEH = Input.GetAxis("Horizontal");
-        MozgasJB = Input.GetAxis("Vertical");
+        MozgasEH = Input.GetAxis("Horizontal") * 10;
+        MozgasJB = Input.GetAxis("Vertical") * 10;
         transform.Translate( MozgasEH * Time.deltaTime , 0, MozgasJB * Time.deltaTime);
 
     }
