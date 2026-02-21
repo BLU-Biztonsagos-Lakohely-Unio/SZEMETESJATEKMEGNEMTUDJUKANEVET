@@ -1,24 +1,41 @@
 using UnityEngine;
-
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
+[RequireComponent(typeof(Rigidbody))]
 public class MOZGAS1 : MonoBehaviour
 {
-
+    Rigidbody rb;
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
+    bool hozzaer;
+    public Transform GC;
+    public float atmero = 0.2f;
+    public LayerMask Ground;
     float MozgasEH;
     float MozgasJB;
-    public float jump;
+    public float jump = 1000f;
     float gyorsasag=10f;
+    
     // Update is called once per frame
     void Update()
     {
-        jump = Input.GetAxis("Jump")*6;
-        MozgasEH = Input.GetAxis("Horizontal") ;
+
+        hozzaer = Physics.CheckSphere(GC.position, atmero, Ground);
+
+        if (Input.GetKeyDown(KeyCode.Space) && hozzaer)
+        {
+            rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
+        }
+
+        MozgasEH = Input.GetAxis("Horizontal");
         MozgasJB = Input.GetAxis("Vertical");
-        transform.Translate( MozgasEH * Time.deltaTime *gyorsasag , Input.GetKeyDown(KeyCode.Space) ? jump * Time.deltaTime * gyorsasag: 0 , MozgasJB * Time.deltaTime * gyorsasag);
-        
+        Debug.Log("Grounded: " + hozzaer);
+    }
+    
+    void FixedUpdate() { 
+        Vector3 move = transform.right * MozgasEH + transform.forward * MozgasJB;
+        rb.MovePosition(rb.position + move * gyorsasag * Time.fixedDeltaTime);
     }
 }
 
