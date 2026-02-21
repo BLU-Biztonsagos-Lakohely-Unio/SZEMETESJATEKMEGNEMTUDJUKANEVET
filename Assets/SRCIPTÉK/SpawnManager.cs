@@ -11,10 +11,12 @@ public class SpawnManager : MonoBehaviour
     //Each prefab should have an ItemValue component that defines its value.
     //The Spawn method will randomly select prefabs from the array and spawn them until the total value of the spawned items reaches the specified spawnValue.
     //They will be spawned within a certain range around the SpawnManager's position
-    //You can spawn the items by pressing the "I" key
+    //You can spawn the items by walking towards the spawner item on the map.
 
     public GameObject[] spawnPrefab; 
-    public float range = 5f;
+    public float itemRange = 5f;
+    public float playerRange = 10f;
+    public bool hasSpawned = false;
 
     //// Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,12 +30,14 @@ public class SpawnManager : MonoBehaviour
         int randomSpawnValue = UnityEngine.Random.Range(10, 20);
         int randomSpawnCount = UnityEngine.Random.Range(3, 6);
 
-
-        if (Input.GetKeyDown(KeyCode.I))
+        float distanceToPlayer = Vector3.Distance(transform.position, Camera.main.transform.position);
+        //Debug.Log("Distance to player: " + distanceToPlayer);
+        if (playerRange >= distanceToPlayer && !hasSpawned)
         {
             Debug.Log("Spawn value: " + randomSpawnValue);
             Debug.Log("Spawn count: " + randomSpawnCount);
             Spawn(randomSpawnValue, randomSpawnCount);
+            hasSpawned = true;
         }
     }
     public void Spawn(int spawnValue, int spawnCount)
@@ -64,7 +68,7 @@ public class SpawnManager : MonoBehaviour
 
             int selectedItemValue = selectedItem.GetComponent<ItemValue>().value;
 
-            Vector3 randomPosition = transform.position + UnityEngine.Random.insideUnitSphere * range;
+            Vector3 randomPosition = transform.position + UnityEngine.Random.insideUnitSphere * itemRange;
             randomPosition.y = transform.position.y; // Keep the y position consistent
 
             Instantiate(selectedItem, randomPosition, Quaternion.identity);
