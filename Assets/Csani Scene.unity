@@ -279,7 +279,9 @@ MonoBehaviour:
   - {fileID: 3544423552674812111, guid: 9734ba7c9eb37ba42bd28ce3c8de76e5, type: 3}
   - {fileID: 1286001019630955780, guid: a9b754410d678374b97ca06ba40f8e6c, type: 3}
   - {fileID: 3378425008624481647, guid: 47fb29cee0dcf304390318c9517eb581, type: 3}
-  range: 5
+  itemRange: 5
+  playerRange: 10
+  hasSpawned: 0
 --- !u!4 &187480318
 Transform:
   m_ObjectHideFlags: 0
@@ -289,7 +291,7 @@ Transform:
   m_GameObject: {fileID: 187480316}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalPosition: {x: 0, y: 6, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -402,7 +404,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.28571, y: 0, z: -4.28571}
-  m_LocalScale: {x: 30, y: 0.1, z: 30}
+  m_LocalScale: {x: 300, y: 0.1, z: 300}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
