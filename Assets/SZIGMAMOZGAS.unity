@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 272837171}
   - component: {fileID: 272837170}
   - component: {fileID: 272837169}
-  m_Layer: 3
+  m_Layer: 1
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,6 +384,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2526855696847315552, guid: 45627c127e4894744bb9ddcfc3c2f958, type: 3}
   m_PrefabInstance: {fileID: 4857150658274065561}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1863283832 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1469527618401675808, guid: 45627c127e4894744bb9ddcfc3c2f958, type: 3}
+  m_PrefabInstance: {fileID: 4857150658274065561}
+  m_PrefabAsset: {fileID: 0}
 --- !u!65 &1863283833
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -422,8 +427,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f6013d8b211b44abe39b22eb0a0edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MOZGAS1
-  GC: {fileID: 1863283833}
-  jump: 0
+  GC: {fileID: 1863283832}
+  atmero: 0.2
+  Ground:
+    serializedVersion: 2
+    m_Bits: 10
+  jump: 100
 --- !u!1001 &4857150658274065561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -466,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3698230276379378525, guid: 45627c127e4894744bb9ddcfc3c2f958, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3698230276379378525, guid: 45627c127e4894744bb9ddcfc3c2f958, type: 3}
       propertyPath: m_LocalPosition.z
