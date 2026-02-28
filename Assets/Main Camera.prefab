@@ -150,4 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32eee48276b650f41858bc958759ce1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: "Assembly-CSharp::KAMERAMOZG\xC1S"
-  Player: {fileID: 0}
+  mouseSensitivity: 100
+  playerBody: {fileID: 3698230276379378525, guid: 45627c127e4894744bb9ddcfc3c2f958, type: 3}
+  playerCamera: {fileID: 137345238275714058}
