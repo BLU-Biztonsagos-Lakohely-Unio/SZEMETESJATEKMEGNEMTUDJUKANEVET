@@ -4,8 +4,11 @@ using static UnityEditor.Searcher.SearcherWindow.Alignment;
 public class MOZGAS1 : MonoBehaviour
 {
     Rigidbody rb;
+    PALYERSTAT stat;
     void Start()
     {
+        stat = GetComponent<PALYERSTAT>();
+        InvokeRepeating(nameof(minuszstamina), 5f, 5f);
         rb = GetComponent<Rigidbody>();
     }
     bool hozzaer;
@@ -15,12 +18,28 @@ public class MOZGAS1 : MonoBehaviour
     float MozgasEH;
     float MozgasJB;
     public float jump = 1000f;
-    float gyorsasag=10f;
-    
+    float gyorsasag;
+    bool fut;
     // Update is called once per frame
     void Update()
     {
-
+        if (stat.stamina <= 0)
+        {
+            gyorsasag = 5f;
+        }
+        else
+        {
+            gyorsasag = 10f;
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            gyorsasag = gyorsasag*2;
+            fut = true;
+        }
+        else
+        {
+            fut = false;
+        }
         hozzaer = Physics.CheckSphere(GC.position, atmero, Ground);
 
         if (Input.GetKeyDown(KeyCode.Space) && hozzaer)
@@ -36,6 +55,11 @@ public class MOZGAS1 : MonoBehaviour
     void FixedUpdate() { 
         Vector3 move = transform.right * MozgasEH + transform.forward * MozgasJB;
         rb.MovePosition(rb.position + move * gyorsasag * Time.fixedDeltaTime);
+    }
+    void minuszstamina()
+    {
+        if(fut) { stat.stamina -= 2;}
+        stat.stamina -= 1;
     }
 }
 
