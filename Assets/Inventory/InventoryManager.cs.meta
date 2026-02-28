@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: 7a4ec85c40ae91647b09e26c3e7f851d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - InventoryPanel: {fileID: 1968478762744015864, guid: c8291bc05eb2bdb49996e62a9e2c2635, type: 3}
+  - itemContainer: {instanceID: 0}
+  - itemSlotPrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

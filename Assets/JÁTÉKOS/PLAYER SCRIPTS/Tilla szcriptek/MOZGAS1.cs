@@ -1,5 +1,5 @@
 using UnityEngine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
+
 [RequireComponent(typeof(Rigidbody))]
 public class MOZGAS1 : MonoBehaviour
 {
@@ -30,7 +30,7 @@ public class MOZGAS1 : MonoBehaviour
 
         MozgasEH = Input.GetAxis("Horizontal");
         MozgasJB = Input.GetAxis("Vertical");
-        Debug.Log("Grounded: " + hozzaer);
+        //Debug.Log("Grounded: " + hozzaer);
     }
     
     void FixedUpdate() { 

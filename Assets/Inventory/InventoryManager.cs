@@ -1,22 +1,25 @@
 using UnityEngine;
-using System.Collections.Generic; // Required for HashSet
-using System.Linq;               // Required for FirstOrDefault
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class InventoryItem
 {
     public string itemName;
-    public int quantity;
+    public Sprite itemIcon;
+    public GameObject itemPrefab;
 }
 
 public class InventoryManager : MonoBehaviour
 {
-    public GameObject InventoryMenu;
+    public GameObject InventoryPanel;
     private bool isInventoryOpen = false;
 
-    // Use a List if you need to access items by index, 
-    // or stick with HashSet if you're managing unique references.
     public List<InventoryItem> inventoryItems = new List<InventoryItem>();
+
+    public Transform itemContainer;
+    public GameObject itemSlotPrefab;
 
     void Update()
     {
@@ -29,31 +32,86 @@ public class InventoryManager : MonoBehaviour
     void ToggleInventory()
     {
         isInventoryOpen = !isInventoryOpen;
-        InventoryMenu.SetActive(isInventoryOpen);
+        InventoryPanel.SetActive(isInventoryOpen);
 
-        // Pauses game when open, resumes when closed
+        if (isInventoryOpen)
+        {
+            UpdateInventoryUI();
+        }
+
         Time.timeScale = isInventoryOpen ? 0 : 1;
     }
 
-    public void AddItem(string nameToAdd)
+    public void AddItem(string nameToAdd, Sprite icon = null, GameObject prefab = null)
     {
-        // Check if the item already exists in the list
-        InventoryItem existingItem = inventoryItems.FirstOrDefault(i => i.itemName == nameToAdd);
+        InventoryItem existingItem = inventoryItems.FirstOrDefault(item => item.itemName == nameToAdd);
 
         if (existingItem != null)
         {
-            existingItem.quantity++;
+            Debug.Log("Item already in inventory: " + nameToAdd);
+            return;
         }
-        else
+
+        inventoryItems.Add(new InventoryItem
         {
-            // Add a brand new item if it wasn't found
-            inventoryItems.Add(new InventoryItem { itemName = nameToAdd, quantity = 1 });
+            itemName = nameToAdd,
+            itemIcon = icon,
+            itemPrefab = prefab
+        });
+
+        Debug.Log("Added to inventory: " + nameToAdd);
+
+        if (isInventoryOpen)
+        {
+            UpdateInventoryUI();
         }
     }
 
-    // Check if an item exists and we have at least one
-    public bool HasItem(string nameToCheck)
+    // UpdateInventoryUI() módosított verziója jobb vizuális megjelenéssel
+    void UpdateInventoryUI()
     {
-        return inventoryItems.Any(i => i.itemName == nameToCheck && i.quantity > 0);
+        foreach (Transform child in itemContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (InventoryItem item in inventoryItems)
+        {
+            GameObject itemSlot = Instantiate(itemSlotPrefab, itemContainer);
+
+            // Item név beállítása
+            Text itemText = itemSlot.GetComponentInChildren<Text>();
+            if (itemText != null)
+            {
+                itemText.text = item.itemName;
+            }
+
+            // Item ikon beállítása
+            Image[] images = itemSlot.GetComponentsInChildren<Image>();
+            foreach (Image img in images)
+            {
+                if (img.gameObject.name == "ItemIcon" && item.itemIcon != null)
+                {
+                    img.sprite = item.itemIcon;
+                    img.enabled = true;
+                }
+            }
+        }
+    }
+
+    public void RemoveItem(string nameToRemove)
+    {
+        InventoryItem itemToRemove = inventoryItems.FirstOrDefault(item => item.itemName == nameToRemove);
+
+        if (itemToRemove != null)
+        {
+            inventoryItems.Remove(itemToRemove);
+            Debug.Log("Removed from inventory: " + nameToRemove);
+
+            if (isInventoryOpen)
+            {
+                UpdateInventoryUI();
+            }
+        }
     }
 }
