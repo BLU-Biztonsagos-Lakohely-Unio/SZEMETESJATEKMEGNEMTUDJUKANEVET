@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
 [RequireComponent(typeof(Rigidbody))]
@@ -5,8 +6,13 @@ public class MOZGAS1 : MonoBehaviour
 {
     Rigidbody rb;
     PALYERSTAT stat;
+    Canvas canvas;
+    TextMeshProUGUI HP,St;
     void Start()
-    {
+    { 
+        canvas = GetComponentInChildren<Canvas>();
+        HP = canvas.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
+        St = canvas.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI >();
         stat = GetComponent<PALYERSTAT>();
         InvokeRepeating(nameof(minuszstamina), 5f, 5f);
         rb = GetComponent<Rigidbody>();
@@ -18,7 +24,7 @@ public class MOZGAS1 : MonoBehaviour
     float MozgasEH;
     float MozgasJB;
     public float jump = 1000f;
-    float gyorsasag;
+    public float gyorsasag;
     bool fut;
     // Update is called once per frame
     void Update()
@@ -55,11 +61,18 @@ public class MOZGAS1 : MonoBehaviour
     void FixedUpdate() { 
         Vector3 move = transform.right * MozgasEH + transform.forward * MozgasJB;
         rb.MovePosition(rb.position + move * gyorsasag * Time.fixedDeltaTime);
+        HP.text = $" HP :\t {stat.HP}";
+        St.text = $" ST :\t {stat.stamina}";
+        minuszstamina();
     }
     void minuszstamina()
     {
-        if(fut) { stat.stamina -= 2;}
-        stat.stamina -= 1;
+         ;
+        if (fut) { stat.stamina -= 20;}
+        else {  }
+        if (stat.stamina > 100) { stat.stamina = 100; }
+        if (stat.stamina < 0) { stat.stamina = 0; stat.HP = -1; }
+
     }
 }
 
