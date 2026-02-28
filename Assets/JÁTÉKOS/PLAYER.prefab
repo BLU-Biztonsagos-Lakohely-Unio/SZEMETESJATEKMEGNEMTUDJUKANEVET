@@ -176,12 +176,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7085520538214314437}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32eee48276b650f41858bc958759ce1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: "Assembly-CSharp::KAMERAMOZG\xC1S"
-  Player: {fileID: 9114003513821792007}
+  mouseSensitivity: 100
+  playerBody: {fileID: 3698230276379378525}
+  playerCamera: {fileID: 7316380727606745389}
 --- !u!1 &7114684014679083601
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +309,7 @@ GameObject:
   - component: {fileID: 6987117288068922913}
   - component: {fileID: 2115067162022807029}
   - component: {fileID: 7491074171783012482}
-  - component: {fileID: 6125813191972779378}
+  - component: {fileID: 36019993412912021}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: Untagged
@@ -438,7 +440,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &6125813191972779378
+--- !u!114 &36019993412912021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -447,7 +449,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 9114003513821792007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e546c2e4456b0c747b8d65e6126d1017, type: 3}
+  m_Script: {fileID: 11500000, guid: 05f6013d8b211b44abe39b22eb0a0edf, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript1
-  jump: 0
+  m_EditorClassIdentifier: Assembly-CSharp::MOZGAS1
+  GC: {fileID: 1469527618401675808}
+  atmero: 0.2
+  Ground:
+    serializedVersion: 2
+    m_Bits: 10
+  jump: 1000
