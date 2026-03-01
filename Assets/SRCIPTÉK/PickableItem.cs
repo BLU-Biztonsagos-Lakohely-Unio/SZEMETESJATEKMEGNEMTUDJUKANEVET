@@ -38,7 +38,7 @@ public class PickableItem : MonoBehaviour
     {
         if (inventoryManager != null)
         {
-            inventoryManager.AddItem(itemName, itemIcon, gameObject);
+            inventoryManager.AddItem(itemName, itemIcon, gameObject); /* még nincs add item*/
             Destroy(gameObject);
         }
     }
