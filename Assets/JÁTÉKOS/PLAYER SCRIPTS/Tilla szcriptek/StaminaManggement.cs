@@ -9,6 +9,7 @@ public class StaminaManggement : MonoBehaviour
     float gyorsasag;
     int stamina;
     bool mehet,fut, ON_OFF;
+    Coroutine RegenC;
     void Start()
     {
         mozog = GetComponent<MOZGAS1>();
@@ -39,33 +40,34 @@ public class StaminaManggement : MonoBehaviour
     void ugrasminusz()
     {
         stat.Stamina -= 10;
-        StopCoroutine(STR(5));
+        StopRegen();
         ON_OFF = false;
     }
     void minuszstamina()
     {
         if (fut) {
             stat.Stamina -= 3;
-            StopCoroutine(STR(5)); 
+            StopRegen();
             ON_OFF = false; 
         }
         else { 
             if (!ON_OFF) 
             {
                 ON_OFF = true; 
-                StartCoroutine(STR(5)); 
+                RegenC = StartCoroutine(STR(5)); 
             }
-        }
-        if (stat.Stamina > 100) 
-        { 
-            stat.Stamina = 100; 
-        }
-        if (stat.Stamina < 0)
-        {
-            stat.Stamina = 0;
         }
     }
 
+    void StopRegen()
+    {
+        if (RegenC != null)
+        {
+            StopCoroutine(RegenC); 
+            RegenC = null;
+        }
+        ON_OFF = false;
+    }
 
     IEnumerator STR(float sec)
     {
@@ -78,6 +80,6 @@ public class StaminaManggement : MonoBehaviour
         }
 
         ON_OFF = false;
-
+        RegenC = null;
     }
 }
