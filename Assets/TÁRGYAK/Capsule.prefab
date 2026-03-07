@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3345198421272637541}
   - component: {fileID: -4464034774596872657}
   - component: {fileID: 5953912121982147692}
+  - component: {fileID: 6751630858118953696}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -156,3 +157,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemValue
   value: 1
+--- !u!114 &6751630858118953696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3544423552674812111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6b813cdd3bf984aaeaf5d8959efde1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  Data: {fileID: 11400000, guid: c02f87ccba50cf94c97aa59644bd5865, type: 2}
+  name: 
+  Description: 
+  canBePickedUp: 0
+  canBeSold: 0

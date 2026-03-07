@@ -12,6 +12,8 @@ public class UI_change : MonoBehaviour
         stat = GetComponent<PALYERSTAT>();
         stat.OnHPC += UpdateHp;
         stat.OnSTDC += UpdateSt;
+        UpdateHp(stat.HP);
+        UpdateSt(stat.Stamina);
     }
 
     // Update is called once per frame
@@ -25,7 +27,7 @@ public class UI_change : MonoBehaviour
     }
     void UpdateSt(int st)
     {
-        St.text = $" Stamina :\t {stat.Stamina}";
+        St.text = $" ST :\t {stat.Stamina}";
     }
     
 }

@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,8 +23,9 @@ public class StaminaManggement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //fut=Input.GetKey(KeyCode.LeftShift)? true:false;
         bool Sift = Input.GetKey(KeyCode.LeftShift);
-        gyorsasag = stamina >0 ? 10f : 5f;
+        gyorsasag = stamina >= 10 ? 10f : 5f;
         if (Sift && stat.Stamina > 30 || mehet && Sift)
         {
             gyorsasag = gyorsasag * 2;
@@ -35,7 +37,6 @@ public class StaminaManggement : MonoBehaviour
             fut = false;
             mehet = false;
         }
-        
     }
     void ugrasminusz()
     {
@@ -76,7 +77,7 @@ public class StaminaManggement : MonoBehaviour
         while (!fut && stat.Stamina < 100) 
         { 
             stat.Stamina += 1; 
-            yield return new WaitForSeconds(2f); 
+            yield return new WaitForSeconds(1f); 
         }
 
         ON_OFF = false;

@@ -9,34 +9,32 @@ public class MOZGAS1 : MonoBehaviour
 {
     Rigidbody rb;
     static PALYERSTAT stat;
-    
-    
-    
-    public event Action Ugras;
-
-    void Start()
-    { 
-        
-       
-        stat = GetComponent<PALYERSTAT>();
-        
-        
-        rb = GetComponent<Rigidbody>();
-    }
-    float gyorsasag = stat.gyorsasag;
-    bool hozzaer;
+    bool hozzaer,fut,mehet = true;
     public Transform GC;
     public float atmero = 0.2f;
     public LayerMask Ground;
     float MozgasEH;
     float MozgasJB;
-    public float jump = 1000f;
+    public float jump = 100f;
+    public event Action Ugras;
+    float gyorsasag,stamina;
+    void Start()
+    { 
+        
+       
+        stat = GetComponent<PALYERSTAT>();
+        stamina = stat.Stamina;
+        gyorsasag = stat.gyorsasag;
+        rb = GetComponent<Rigidbody>();
+    }
+   
    
 
     // Update is called once per frame
     void Update()
     {
         
+
         hozzaer = Physics.CheckSphere(GC.position, atmero, Ground);
 
         if (Input.GetKeyDown(KeyCode.Space) && hozzaer)
@@ -47,16 +45,12 @@ public class MOZGAS1 : MonoBehaviour
 
         MozgasEH = Input.GetAxis("Horizontal");
         MozgasJB = Input.GetAxis("Vertical");
-        Debug.Log("Grounded: " + hozzaer);
+        
     }
 
     void FixedUpdate() {
         Vector3 move = transform.right * MozgasEH + transform.forward * MozgasJB;
         rb.MovePosition(rb.position + move * gyorsasag * Time.fixedDeltaTime);
-        
-        
-        
-        
     }
     
 }
