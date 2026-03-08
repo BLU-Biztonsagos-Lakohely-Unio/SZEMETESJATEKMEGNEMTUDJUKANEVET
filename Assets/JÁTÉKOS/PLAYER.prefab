@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2526855696847315552}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7085520538214314437}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32eee48276b650f41858bc958759ce1d, type: 3}
   m_Name: 
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 6987117288068922913}
   - component: {fileID: 2115067162022807029}
   - component: {fileID: 7491074171783012482}
-  - component: {fileID: 36019993412912021}
+  - component: {fileID: 4988969105647295085}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: Untagged
@@ -440,7 +440,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &36019993412912021
+--- !u!114 &4988969105647295085
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -456,5 +456,5 @@ MonoBehaviour:
   atmero: 0.2
   Ground:
     serializedVersion: 2
-    m_Bits: 10
+    m_Bits: 8
   jump: 1000

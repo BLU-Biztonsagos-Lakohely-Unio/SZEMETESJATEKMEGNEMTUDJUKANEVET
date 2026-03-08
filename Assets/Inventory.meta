@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Inventory.meta
 guid: 6b94bfc12f51e664d95954a114ae6632
+========
+guid: f54d1bd14bd3ca042bd867b519fee8cc
+>>>>>>>> Player-script-Tilla:Assets/TextMesh Pro.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
