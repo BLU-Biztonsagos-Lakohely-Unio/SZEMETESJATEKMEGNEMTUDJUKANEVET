@@ -9,13 +9,12 @@ public class StaminaManggement : MonoBehaviour
     static MOZGAS1 mozog;
     float gyorsasag;
     int stamina;
-    bool mehet,fut, ON_OFF;
+    public bool mehet,fut, ON_OFF;
     Coroutine RegenC;
     void Start()
     {
         mozog = GetComponent<MOZGAS1>();
         stat = GetComponent<PALYERSTAT>();
-        gyorsasag = stat.gyorsasag;
         stamina = stat.Stamina;
         mozog.Ugras += ugrasminusz;
         InvokeRepeating(nameof(minuszstamina), 1f, 1f);
@@ -23,19 +22,15 @@ public class StaminaManggement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //fut=Input.GetKey(KeyCode.LeftShift)? true:false;
+        fut = Input.GetKey(KeyCode.LeftShift);
         bool Sift = Input.GetKey(KeyCode.LeftShift);
-        gyorsasag = stamina >= 10 ? 10f : 5f;
-        if (Sift && stat.Stamina > 30 || mehet && Sift)
+        stat.gyorsasag = stat.Stamina >= 20 ? 10f : 5f;
+        if (Sift)
         {
-            gyorsasag = gyorsasag * 2;
-            fut = true;
-            mehet = true;
+            stat.gyorsasag *= 2;
         }
         else
         {
-            fut = false;
-            mehet = false;
         }
     }
     void ugrasminusz()

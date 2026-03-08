@@ -9,7 +9,7 @@ public class MOZGAS1 : MonoBehaviour
 {
     Rigidbody rb;
     static PALYERSTAT stat;
-    bool hozzaer,fut,mehet = true;
+    bool hozzaer;
     public Transform GC;
     public float atmero = 0.2f;
     public LayerMask Ground;
@@ -17,18 +17,12 @@ public class MOZGAS1 : MonoBehaviour
     float MozgasJB;
     public float jump = 100f;
     public event Action Ugras;
-    float gyorsasag,stamina;
+    float gyorsasag;
     void Start()
     { 
-        
-       
         stat = GetComponent<PALYERSTAT>();
-        stamina = stat.Stamina;
-        gyorsasag = stat.gyorsasag;
         rb = GetComponent<Rigidbody>();
     }
-   
-   
 
     // Update is called once per frame
     void Update()
@@ -49,6 +43,7 @@ public class MOZGAS1 : MonoBehaviour
     }
 
     void FixedUpdate() {
+        gyorsasag = stat.gyorsasag;
         Vector3 move = transform.right * MozgasEH + transform.forward * MozgasJB;
         rb.MovePosition(rb.position + move * gyorsasag * Time.fixedDeltaTime);
     }

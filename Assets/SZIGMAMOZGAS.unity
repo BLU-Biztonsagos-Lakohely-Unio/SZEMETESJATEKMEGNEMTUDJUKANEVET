@@ -550,7 +550,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2560, y: 1440}
+  m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &913237845
 MonoBehaviour:
@@ -565,7 +565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -893,7 +893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5ee30d03f2659c4794d69b372e80510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PALYERSTAT
-  gyorsasag: 10
+  gyorsasag: 0
 --- !u!4 &2031161435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3698230276379378525, guid: 45627c127e4894744bb9ddcfc3c2f958, type: 3}
@@ -925,6 +925,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e162416c6516f4a814b80e3f9921f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StaminaManggement
+  mehet: 0
+  fut: 0
+  ON_OFF: 0
 --- !u!114 &2031161443
 MonoBehaviour:
   m_ObjectHideFlags: 0

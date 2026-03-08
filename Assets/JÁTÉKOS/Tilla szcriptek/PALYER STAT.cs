@@ -19,7 +19,7 @@ public class PALYERSTAT : MonoBehaviour
     int level = 1;
     int hunger = 100;
     int thtirst = 100;
-    public float gyorsasag;
+    public float gyorsasag = 0f;
     
 
     public event Action<int> OnHPC;
