@@ -34,10 +34,11 @@ public class StaminaManggement : MonoBehaviour
         }
     }
     void ugrasminusz()
-    {
+    { 
         stat.Stamina -= 10;
         StopRegen();
         ON_OFF = false;
+        
     }
     void minuszstamina()
     {

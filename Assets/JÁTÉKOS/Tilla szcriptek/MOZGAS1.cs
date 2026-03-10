@@ -31,7 +31,7 @@ public class MOZGAS1 : MonoBehaviour
 
         hozzaer = Physics.CheckSphere(GC.position, atmero, Ground);
 
-        if (Input.GetKeyDown(KeyCode.Space) && hozzaer)
+        if (Input.GetKeyDown(KeyCode.Space) && hozzaer && stat.Stamina>=10)
         {
             rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
             Ugras?.Invoke();

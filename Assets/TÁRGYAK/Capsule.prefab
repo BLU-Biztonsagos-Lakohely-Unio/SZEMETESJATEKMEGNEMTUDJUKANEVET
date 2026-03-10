@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -4464034774596872657}
   - component: {fileID: 5953912121982147692}
   - component: {fileID: 6751630858118953696}
+  - component: {fileID: 8069711784583488586}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -174,3 +175,17 @@ MonoBehaviour:
   Description: 
   canBePickedUp: 0
   canBeSold: 0
+--- !u!114 &8069711784583488586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3544423552674812111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a61f9b8c3301f4f85d7b71912e1c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: "Assembly-CSharp::Felv\xE9tel"
+  inventory: {fileID: 0}
+  itemPrgmefab: {fileID: 0}

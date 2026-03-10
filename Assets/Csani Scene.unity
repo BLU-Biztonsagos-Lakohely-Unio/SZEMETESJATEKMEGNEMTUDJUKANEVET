@@ -305,7 +305,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8617846043328701947, guid: 25434d50525e1004ba7d8d94d792605e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1866484766}
   m_SourcePrefab: {fileID: 100100000, guid: 25434d50525e1004ba7d8d94d792605e, type: 3}
 --- !u!1 &176036347
 GameObject:
@@ -634,6 +637,42 @@ RectTransform:
   m_AnchoredPosition: {x: 809, y: -447}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &648774952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8526974513941993999, guid: aede4b44ca9cf0141be36ffaf252c3c2, type: 3}
+  m_PrefabInstance: {fileID: 9185111766026972803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &648774958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648774952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6b813cdd3bf984aaeaf5d8959efde1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  Data: {fileID: 11400000, guid: c02f87ccba50cf94c97aa59644bd5865, type: 2}
+  name: 
+  Description: 
+  canBePickedUp: 0
+  canBeSold: 0
+--- !u!114 &648774959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648774952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a61f9b8c3301f4f85d7b71912e1c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: "Assembly-CSharp::Felv\xE9tel"
+  inventory: {fileID: 1467805408}
+  itemPrgmefab: {fileID: 648774958}
 --- !u!1 &867093972
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +957,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1467805407}
   - component: {fileID: 1467805406}
+  - component: {fileID: 1467805408}
   m_Layer: 0
   m_Name: InventoryManager
   m_TagString: Untagged
@@ -953,6 +993,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1467805408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467805405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c28a7317566ca4a82678ecdbfcf12f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &1596205356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1161,6 +1224,34 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7939362969284404024, guid: 899b6e7d251916448b24e538d0dcadb1, type: 3}
   m_PrefabInstance: {fileID: 1596205356}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1866484765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8617846043328701947, guid: 25434d50525e1004ba7d8d94d792605e, type: 3}
+  m_PrefabInstance: {fileID: 111255936}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1866484766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866484765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c28a7317566ca4a82678ecdbfcf12f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2018832147 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2287952530631385889, guid: 719ffa47c5a87d14283dc2f098649ee9, type: 3}
@@ -1233,10 +1324,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: elso_interaktalo_dolog
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1989584389020730578, guid: aede4b44ca9cf0141be36ffaf252c3c2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8526974513941993999, guid: aede4b44ca9cf0141be36ffaf252c3c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 648774959}
+    - targetCorrespondingSourceObject: {fileID: 8526974513941993999, guid: aede4b44ca9cf0141be36ffaf252c3c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 648774958}
   m_SourcePrefab: {fileID: 100100000, guid: aede4b44ca9cf0141be36ffaf252c3c2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
