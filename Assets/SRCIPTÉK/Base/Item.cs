@@ -2,7 +2,7 @@ using UnityEngine;
 using Unity.Mathematics;
 using System;
 
-public abstract class Item : MonoBehaviour , IInteractable
+public abstract class Item : MonoBehaviour
 {
     public ItemDataSO Data;
     public int CurrentValue;
@@ -21,8 +21,4 @@ public abstract class Item : MonoBehaviour , IInteractable
         return Data.BaseValue;
     }
 
-    public void Interact(GameObject Player)
-    {
-        Data.ToString();
-    }
 }
