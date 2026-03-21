@@ -4,18 +4,18 @@ using UnityEngine;
 public class Felvétel : MonoBehaviour, IInteractable
 {
     public Inventory inventory;
-    public ItemData itemPrgmefab;
+    public ItemData itemPrefab;
     void Start()
     {
         inventory = GameObject.Find("InventoryManager").GetComponent<Inventory>();
-        itemPrgmefab = transform.GetComponent<ItemData>();
+        itemPrefab = transform.GetComponent<ItemData>();
     }
 
     public void Interact()
     {
         
-        Debug.Log("Interacted with " + gameObject.name);
-        inventory.additem(itemPrgmefab);
+        Debug.Log("Felvetted: " + gameObject.name);
+        inventory.AddItem(itemPrefab.Data);
         Destroy(gameObject);
     }
     

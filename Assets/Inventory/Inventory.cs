@@ -2,26 +2,34 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public ItemData[] items = new ItemData[10];
+    public ItemDataSO[] items = new ItemDataSO[10];
+    //át kéne írni egy List-re mert az egyszerûbb
 
-    public void additem(ItemData targy)
+    public void AddItem(ItemDataSO targy)
     {
-        foreach(var item in items)
+        for (int i = 0; i < items.Length; i++)
         {
-            int i= 0;
-            if (items[i] != null)
-            {
-                i++;
-            }
-            else
+            if (items[i] == null)
             {
                 items[i] = targy;
-                break;
+                Debug.Log("Added item to the inventory: " + targy);
+                return;
             }
         }
-        Debug.Log("Added item: " + targy.name);
+
     }
-    
-    
+    public void RemoveItem(ItemDataSO targy)
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i] == targy)
+            {
+                Debug.Log("Item Removed from inventory: " + targy);
+                items[i] = null;
+                return;
+            }
+        }
+    }
 
 }
+

@@ -15,10 +15,10 @@ public abstract class Item : MonoBehaviour
 
     }
 
-    public virtual int GetSellPrice()
+    public int GetSellPrice()
     {
         if (!Data.CanBeSold) return 0;
-        return Data.BaseValue;
+        return CurrentValue;
     }
 
 }

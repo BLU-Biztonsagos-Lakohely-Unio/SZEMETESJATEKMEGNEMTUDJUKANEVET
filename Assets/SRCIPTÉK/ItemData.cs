@@ -3,11 +3,13 @@ using UnityEngine;
 public class ItemData : MonoBehaviour
 {
     public ItemDataSO Data;
-    public string name,Description;
+    public int BaseValue;
+    public string itemName,Description;
     public bool canBePickedUp, canBeSold;
-    void Start()
+    void Awake()
     {
-        name = Data.name;
+        itemName = Data.ItemName;
+        BaseValue = Data.BaseValue;
         Description = Data.Description;
         canBePickedUp = Data.CanBePickedUp;
         canBeSold = Data.CanBeSold;
