@@ -453,6 +453,7 @@ GameObject:
   - component: {fileID: 193006952}
   - component: {fileID: 193006951}
   - component: {fileID: 193006950}
+  - component: {fileID: 193006955}
   m_Layer: 0
   m_Name: Upgrade_Npc
   m_TagString: Untagged
@@ -566,6 +567,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &193006955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193006949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0488884f99b7860448561182201613d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &245858241
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,6 +711,18 @@ PrefabInstance:
       propertyPath: St
       value: 
       objectReference: {fileID: 848799742}
+    - target: {fileID: 3597527595279225174, guid: 719ffa47c5a87d14283dc2f098649ee9, type: 3}
+      propertyPath: hpSzoveg
+      value: 
+      objectReference: {fileID: 1524154030}
+    - target: {fileID: 3597527595279225174, guid: 719ffa47c5a87d14283dc2f098649ee9, type: 3}
+      propertyPath: staminaSzoveg
+      value: 
+      objectReference: {fileID: 848799742}
+    - target: {fileID: 6297842299277741278, guid: 719ffa47c5a87d14283dc2f098649ee9, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 809221153}
     - target: {fileID: 7523003216293268727, guid: 719ffa47c5a87d14283dc2f098649ee9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.30801
@@ -1001,6 +1026,55 @@ Transform:
   - {fileID: 2025403010}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &500019302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 500019303}
+  - component: {fileID: 500019304}
+  m_Layer: 0
+  m_Name: UpgradeUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &500019303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500019302}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1399888227}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &500019304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500019302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6882f0f70a52a4d43b2265d4527591ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeUI
+  Name: 
+  cost: 0
+  description: 
+  StatChange: 0
+  AmountToChange: 0
 --- !u!1 &557962000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,6 +1248,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: "Assembly-CSharp::Felv\xE9tel"
   inventory: {fileID: 1467805408}
   itemPrgmefab: {fileID: 648774958}
+--- !u!4 &809221153 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3549918225679983246, guid: 719ffa47c5a87d14283dc2f098649ee9, type: 3}
+  m_PrefabInstance: {fileID: 342518325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &848799740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,6 +1799,60 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1399888225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1399888227}
+  - component: {fileID: 1399888228}
+  m_Layer: 0
+  m_Name: UPGRADES
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1399888227
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399888225}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 500019303}
+  m_Father: {fileID: 1506397530}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1399888228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399888225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6882f0f70a52a4d43b2265d4527591ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeUI
+  Name: Szigma
+  cost: 100
+  description: 
+  StatChange: 2
+  AmountToChange: 20
 --- !u!1 &1467805405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +1952,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1399888227}
   - {fileID: 2007526610}
   m_Father: {fileID: 1616695657}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2635,7 +2769,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2007526612}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1399888228}
+        m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
+        m_MethodName: Upgarde
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2007526612
 MonoBehaviour:
   m_ObjectHideFlags: 0

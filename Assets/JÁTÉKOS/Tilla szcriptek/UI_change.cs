@@ -1,33 +1,88 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using PS;
-public class UI_change : MonoBehaviour
+
+/// <summary>
+/// Frissíti a HUD szöveges elemeit a PALYERSTAT eseményei alapján.
+/// Ugyanarra a GameObject-re kell tenni, mint a PALYERSTAT.
+/// </summary>
+public class UI_Change : MonoBehaviour
 {
-    PALYERSTAT stat;
-    Canvas canvas;
-    public TextMeshProUGUI HP, St;
+    [Header("HUD szöveges elemek")]
+    public TextMeshProUGUI hpSzoveg;
+    public TextMeshProUGUI staminaSzoveg;
+    //public TextMeshProUGUI ehsegSzoveg;
+    //public TextMeshProUGUI szomjusagSzoveg;
+
+    /*
+    [Header("Halál képernyő")]
+    [Tooltip("Egy GameObject aminek a Canvas/Panel a halál képernyő – Start()-ban kikapcsoljuk.")]
+    public GameObject halalKepernyo;
+    */
+    private PALYERSTAT stat;
+
     void Start()
     {
-        canvas = GetComponentInChildren<Canvas>();
         stat = GetComponent<PALYERSTAT>();
-        stat.OnHPC += UpdateHp;
-        stat.OnSTDC += UpdateSt;
-        UpdateHp(stat.HP);
-        UpdateSt(stat.Stamina);
+
+        // Feliratkozás eseményekre
+        stat.OnHPChanged += FrissitHP;
+        stat.OnStaminaChanged += FrissitStamina;
+        //stat.OnHungerChanged += FrissitEhseg;
+        //stat.OnThirstChanged += FrissitSzomjusag;
+        //stat.OnDeath += MutatHalalKepernyo;
+
+        /*
+        //Halál képernyő alapból rejtett
+        if (halalKepernyo != null)
+            halalKepernyo.SetActive(false);
+        */
+        // Kezdeti értékek kiírása
+        FrissitHP(stat.HP);
+        FrissitStamina(stat.Stamina);
+        //FrissitEhseg(stat.Hunger);
+        //FrissitSzomjusag(stat.Thirst);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDestroy()
     {
-        
+        if (stat == null) return;
+        stat.OnHPChanged -= FrissitHP;
+        stat.OnStaminaChanged -= FrissitStamina;
+        //stat.OnHungerChanged -= FrissitEhseg;
+        //stat.OnThirstChanged -= FrissitSzomjusag;
+        //stat.OnDeath -= MutatHalalKepernyo;
     }
-    void UpdateHp(int hp)
+
+    // ── Frissítő metódusok ────────────────────────────────────────
+
+    private void FrissitHP(int hp)
     {
-        HP.text = $" HP :\t {stat.HP}";
+        if (hpSzoveg != null)
+            hpSzoveg.text = $"HP:\t{hp} / {PALYERSTAT.MaxHp}";
     }
-    void UpdateSt(int st)
+
+    private void FrissitStamina(int stamina)
     {
-        St.text = $" ST :\t {stat.Stamina}";
+        if (staminaSzoveg != null)
+            staminaSzoveg.text = $"ST:\t{stamina} / {PALYERSTAT.MaxStamina}";
     }
-    
+
+    //private void FrissitEhseg(int hunger)
+    //{
+    //    if (ehsegSzoveg != null)
+    //        ehsegSzoveg.text = $"Éhség:\t{hunger} / {PALYERSTAT.MaxHunger}";
+    //}
+
+    //private void FrissitSzomjusag(int thirst)
+    //{
+    //    if (szomjusagSzoveg != null)
+    //        szomjusagSzoveg.text = $"Szomj:\t{thirst} / {PALYERSTAT.MaxThirst}";
+    //}
+
+    //private void MutatHalalKepernyo()
+    //{
+    //    if (halalKepernyo != null)
+    //        halalKepernyo.SetActive(true);
+    //}
 }

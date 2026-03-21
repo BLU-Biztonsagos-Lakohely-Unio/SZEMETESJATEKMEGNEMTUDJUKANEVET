@@ -35,7 +35,7 @@ public class UpgradeUI : MonoBehaviour
                 Debug.Log("Max HP növelve: " + AmountToChange);
                 break;
             case StatType.MaxST:
-                PALYERSTAT.MaxST += (int)AmountToChange;
+                PALYERSTAT.MaxStamina += (int)AmountToChange;
                 Debug.Log("Max ST növelve: " + AmountToChange);
                 break;
             case StatType.SlotokSzáma:
