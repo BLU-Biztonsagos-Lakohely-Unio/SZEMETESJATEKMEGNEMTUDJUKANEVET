@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PS;
 
 public class StaminaManggement : MonoBehaviour
 {
@@ -24,10 +25,10 @@ public class StaminaManggement : MonoBehaviour
     {
         fut = Input.GetKey(KeyCode.LeftShift);
         bool Sift = Input.GetKey(KeyCode.LeftShift);
-        stat.gyorsasag = stat.Stamina >= 20 ? 10f : 5f;
+        PALYERSTAT.gyorsasag= stat.Stamina >= 20 ? 10f : 5f;
         if (Sift)
         {
-            stat.gyorsasag *= 2;
+            PALYERSTAT.gyorsasag *= 2;
         }
         else
         {

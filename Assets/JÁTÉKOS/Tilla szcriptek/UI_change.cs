@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-
+using PS;
 public class UI_change : MonoBehaviour
 {
     PALYERSTAT stat;

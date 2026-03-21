@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
 using System;
+using PS;
 [RequireComponent(typeof(Rigidbody))]
 public class MOZGAS1 : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class MOZGAS1 : MonoBehaviour
     }
 
     void FixedUpdate() {
-        gyorsasag = stat.gyorsasag;
+        gyorsasag = PALYERSTAT.gyorsasag;
         Vector3 move = transform.right * MozgasEH + transform.forward * MozgasJB;
         rb.MovePosition(rb.position + move * gyorsasag * Time.fixedDeltaTime);
     }
