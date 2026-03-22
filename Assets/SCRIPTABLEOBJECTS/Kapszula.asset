@@ -15,5 +15,5 @@ MonoBehaviour:
   ItemName: Kapszula
   Description: ez egy kapszula
   BaseValue: 5
-  CanBePickedUp: 0
+  CanBePickedUp: 1
   CanBeSold: 1
