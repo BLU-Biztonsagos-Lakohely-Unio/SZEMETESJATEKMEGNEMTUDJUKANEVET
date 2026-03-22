@@ -54,11 +54,13 @@ public class StaminaManagement : MonoBehaviour
         fut = Input.GetKey(KeyCode.LeftShift);
 
         // Alapsebesség stamina alapján
-        PALYERSTAT.gyorsasag = stat.Stamina >= 20 ? 10f : 5f;
+        PALYERSTAT.gyorsasag = stat.Stamina >= 20 ? PALYERSTAT.MaxSeb : PALYERSTAT.MaxSeb/2;
 
         // Futás: kétszeres sebesség, csak ha van elég stamina
+        
         if (fut && stat.Stamina > 0)
             PALYERSTAT.gyorsasag *= 2f;
+        
     }
 
     // ── Stamina ───────────────────────────────────────────────────

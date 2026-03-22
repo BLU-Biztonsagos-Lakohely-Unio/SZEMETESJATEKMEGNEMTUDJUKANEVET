@@ -12,8 +12,21 @@ namespace PS
         [Header("Alap adatok")]
         public string playerName = "Player";
         public int level = 1;
-
-        [Header("Maximum értékek")]
+        public int maxhp = MaxHp;
+        public int maxstamina = MaxStamina;
+        public int maxhunger = MaxHunger;
+        public int maxthirst = MaxThirst;
+        public float gg = MaxSeb;
+        public void Update()
+        {
+            maxhp = MaxHp;
+            maxstamina = MaxStamina;
+            maxhunger = MaxHunger;
+            maxthirst = MaxThirst;
+            gg = gyorsasag;
+        }
+        [Header("statikok")]
+        public static float MaxSeb= 10f;
         public static int MaxHp = 100;
         public static int MaxStamina = 100;
         public static int MaxHunger = 100;
