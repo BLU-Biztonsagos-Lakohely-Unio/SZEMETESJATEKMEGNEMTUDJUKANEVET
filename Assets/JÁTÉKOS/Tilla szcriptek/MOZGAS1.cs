@@ -44,9 +44,11 @@ public class MOZGAS1 : MonoBehaviour
         }
         mozgasVizszintes = Input.GetAxis("Horizontal");
         mozgasFuggoleges = Input.GetAxis("Vertical");
+        transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
     }
     void FixedUpdate()
     {
+        
         if (stat.IsDead) return;
 
         Vector3 irany = transform.right * mozgasVizszintes + transform.forward * mozgasFuggoleges;
