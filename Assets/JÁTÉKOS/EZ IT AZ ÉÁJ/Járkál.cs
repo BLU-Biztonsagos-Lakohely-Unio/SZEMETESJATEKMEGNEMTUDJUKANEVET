@@ -1,6 +1,7 @@
 using Game.AI;
 using UnityEngine;
 
+
 public class Járkál : MonoBehaviour
 {
     public Arrea area;
@@ -10,12 +11,16 @@ public class Járkál : MonoBehaviour
     private float MaxSetaloido = 5f;
     private float waittime = 0f;
     private float Sido = 0f;
+    public static bool fStop=false;
     enum EState
     {
         W,
         S
     }
     EState state = EState.W;
+
+    
+
     private void Awake()
     {
         npc = GetComponentInParent<NPC>();
@@ -68,7 +73,7 @@ public class Járkál : MonoBehaviour
         state = newState;
         if (state == EState.W)
         {
-            npc.agent.isStopped = false;
+            npc.agent.isStopped = fStop? true : false;
             Sido = MaxSetaloido;
             Rdestination();
             
@@ -80,4 +85,6 @@ public class Járkál : MonoBehaviour
         }
         
     }
+
+    
 }
