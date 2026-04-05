@@ -35,6 +35,7 @@ public class InventoryManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             ToggleInventory();
+            
         }
     }
 
@@ -51,9 +52,7 @@ public class InventoryManager : MonoBehaviour
         Cursor.lockState = isInventoryOpen ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
-    public void AddItem(string nameToAdd, Sprite icon = null, GameObject prefab = null)
-    {
-    }
+    
 
    
 }

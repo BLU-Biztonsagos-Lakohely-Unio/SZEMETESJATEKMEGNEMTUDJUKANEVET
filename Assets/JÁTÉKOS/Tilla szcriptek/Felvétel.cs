@@ -7,7 +7,7 @@ public class Felvétel : MonoBehaviour, IInteractable
     public ItemData itemPrefab;
     void Start()
     {
-        inventory = GameObject.Find("InventoryManager").GetComponent<Inventory>();
+        inventory = Inventory.Instance;
         itemPrefab = transform.GetComponent<ItemData>();
     }
 

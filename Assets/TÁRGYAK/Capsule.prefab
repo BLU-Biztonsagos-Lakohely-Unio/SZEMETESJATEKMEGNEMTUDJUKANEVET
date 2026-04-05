@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5953912121982147692}
   - component: {fileID: 6751630858118953696}
   - component: {fileID: 8069711784583488586}
+  - component: {fileID: -3962805848015394556}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -171,11 +172,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   Data: {fileID: 11400000, guid: c02f87ccba50cf94c97aa59644bd5865, type: 2}
-  name: 
-  Description: 
-  canBePickedUp: 0
-  canBeSold: 0
+  BaseValue: 10
+  itemName: Kapszula
+  Description: Ez egy kapszula
+  canBePickedUp: 1
+  canBeSold: 1
+  weight: 20
 --- !u!114 &8069711784583488586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3544423552674812111}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a61f9b8c3301f4f85d7b71912e1c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: "Assembly-CSharp::Felv\xE9tel"
+  inventory: {fileID: 0}
+  itemPrefab: {fileID: 0}
+--- !u!114 &-3962805848015394556
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,8 +201,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3544423552674812111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4a61f9b8c3301f4f85d7b71912e1c62, type: 3}
+  m_Script: {fileID: 11500000, guid: a193ad6e87116244f887e782c662293b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: "Assembly-CSharp::Felv\xE9tel"
-  inventory: {fileID: 0}
-  itemPrgmefab: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::PickableItem
+  itemData: {fileID: 0}
+  itemName: Item
+  itemIcon: {fileID: 0}
+  pickupRadius: 2

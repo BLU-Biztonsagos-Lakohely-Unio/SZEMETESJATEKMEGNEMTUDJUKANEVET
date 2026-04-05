@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -6319720256534364820}
   - component: {fileID: -4470362561225641723}
   - component: {fileID: 6189600728815853591}
+  - component: {fileID: -1241990197402303716}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -171,12 +172,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   Data: {fileID: 11400000, guid: 5bd35c5c4bae49c4884cce5dc45ed3a1, type: 2}
-  BaseValue: 0
-  itemName: 
-  Description: 
-  canBePickedUp: 0
-  canBeSold: 0
+  BaseValue: 20
+  itemName: Henger
+  Description: Ez egy henger
+  canBePickedUp: 1
+  canBeSold: 1
+  weight: 40
 --- !u!114 &6189600728815853591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378425008624481647}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a61f9b8c3301f4f85d7b71912e1c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: "Assembly-CSharp::Felv\xE9tel"
+  inventory: {fileID: 0}
+  itemPrefab: {fileID: 0}
+--- !u!114 &-1241990197402303716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,8 +201,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3378425008624481647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4a61f9b8c3301f4f85d7b71912e1c62, type: 3}
+  m_Script: {fileID: 11500000, guid: a193ad6e87116244f887e782c662293b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: "Assembly-CSharp::Felv\xE9tel"
-  inventory: {fileID: 0}
-  itemPrefab: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::PickableItem
+  itemData: {fileID: 0}
+  itemName: Item
+  itemIcon: {fileID: 0}
+  pickupRadius: 2

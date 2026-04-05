@@ -2,23 +2,19 @@ using UnityEngine;
 
 public class PickableItem : MonoBehaviour
 {
+    public ItemDataSO itemData;
     public string itemName = "Item";
     public Sprite itemIcon;
+
     public float pickupRadius = 2f;
 
     private Transform player;
-    private InventoryManager inventoryManager;
     private bool playerInRange = false;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
-        inventoryManager = FindFirstObjectByType<InventoryManager>();
-
-        if (inventoryManager == null)
-        {
-            Debug.LogError("InventoryManager not found in scene!");
-        }
+        
     }
 
     void Update()
@@ -36,10 +32,15 @@ public class PickableItem : MonoBehaviour
 
     void PickUp()
     {
-        if (inventoryManager != null)
+        if (Inventory.Instance != null && itemData != null)
         {
-            inventoryManager.AddItem(itemName, itemIcon, gameObject); /* még nincs add item*/
-            Destroy(gameObject);
+            Inventory.Instance.AddItem(itemData);
+            Debug.Log("Picked up: " + itemData.ItemName + " Súlya: " + itemData.Weight);
+            //Destroy(gameObject);
+        }
+        else
+        {
+            Debug.LogError("Inventory nem található!");
         }
     }
 

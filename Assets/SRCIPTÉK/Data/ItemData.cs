@@ -8,4 +8,5 @@ public class ItemDataSO : ScriptableObject
     public int BaseValue;
     public bool CanBePickedUp;
     public bool CanBeSold;
+    public float Weight;
 }
