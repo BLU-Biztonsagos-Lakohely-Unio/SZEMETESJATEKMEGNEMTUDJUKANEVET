@@ -48,6 +48,7 @@ public class SaleManager : MonoBehaviour, IInteractable
             }
 
         }
+        inventory.Money += money;
         Debug.Log($"You sold items for a total of {money} money.");
         return money;
     }
