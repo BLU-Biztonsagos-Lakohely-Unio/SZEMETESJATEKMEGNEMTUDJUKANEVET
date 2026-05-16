@@ -1,52 +1,76 @@
-using System.Collections.Generic;
-using System.Collections;
-using TMPro;
+﻿using System;
 using UnityEngine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
-using System;
+using PS;
+/// <summary>
+/// Kezeli a játékos mozgását és ugrását Rigidbody segítségével.
+/// </summary>
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(PALYERSTAT))]
 public class MOZGAS1 : MonoBehaviour
 {
-    Rigidbody rb;
-    static PALYERSTAT stat;
-    bool hozzaer;
-    public Transform GC;
-    public float atmero = 0.2f;
-    public LayerMask Ground;
-    float MozgasEH;
-    float MozgasJB;
-    public float jump = 100f;
+    [Header("Ugrás")]
+    public float jumpEreje = 100f;
+    [Header("Talaj érzékelés")]
+    public Transform groundCheck;
+    public float groundCheckSugár = 0.2f;
+    public LayerMask groundLayer;
+    /// <summary>
+    /// Esemény – a StaminaManagement figyeli az ugrás stamina-levonásához.
+    /// </summary>
     public event Action Ugras;
-    float gyorsasag;
+    private Rigidbody rb;
+    private PALYERSTAT stat;
+    private float mozgasVizszintes;
+    private float mozgasFuggoleges;
+    private bool talajonVan;
     void Start()
-    { 
-        stat = GetComponent<PALYERSTAT>();
+    {
         rb = GetComponent<Rigidbody>();
+        stat = GetComponent<PALYERSTAT>();
+        // Ha a játékos meghal, befagyasztjuk a fizikát
+        stat.OnDeath += OnHalalas;
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
-
-        hozzaer = Physics.CheckSphere(GC.position, atmero, Ground);
-
-        if (Input.GetKeyDown(KeyCode.Space) && hozzaer && stat.Stamina>=10)
+        // Halott játékos nem mozog
+        //if (stat.IsDead) return;
+        talajonVan = Physics.CheckSphere(groundCheck.position, groundCheckSugár, groundLayer);
+        Debug.Log("Talajon van: " + talajonVan + Input.GetKeyDown(KeyCode.Space));
+        if (Input.GetKeyDown(KeyCode.Space) && talajonVan && stat.Stamina >= 10)
         {
-            rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
+            Debug.Log("Ugrás!");
+            rb.AddForce(Vector3.up * jumpEreje, ForceMode.Impulse);
             Ugras?.Invoke();
         }
-
-        MozgasEH = Input.GetAxis("Horizontal");
-        MozgasJB = Input.GetAxis("Vertical");
+        mozgasVizszintes = Input.GetAxis("Horizontal");
+        mozgasFuggoleges = Input.GetAxis("Vertical");
+        transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
+    }
+    void FixedUpdate()
+    {
         
-    }
+        if (stat.IsDead) return;
 
-    void FixedUpdate() {
-        gyorsasag = stat.gyorsasag;
-        Vector3 move = transform.right * MozgasEH + transform.forward * MozgasJB;
-        rb.MovePosition(rb.position + move * gyorsasag * Time.fixedDeltaTime);
+        Vector3 irany = transform.right * mozgasVizszintes + transform.forward * mozgasFuggoleges;
+       
+        Vector3 ujSebesseg = irany * PALYERSTAT.gyorsasag;
+        ujSebesseg.y = rb.linearVelocity.y;
+
+        rb.linearVelocity = ujSebesseg;
     }
-    
+    /// <summary>
+    /// Halálkor befagyasztja a Rigidbody-t, hogy a test ne csússzon el.
+    /// </summary>
+    private void OnHalalas()
+    {
+        rb.linearVelocity = Vector3.zero;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+    }
+    // ── Gizmo: talaj érzékelő gömb megjelenítése a Scene nézetben ─
+    void OnDrawGizmosSelected()
+    {
+        if (groundCheck == null) return;
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckSugár);
+    }
 }
-
