@@ -3,7 +3,7 @@
 > *Az egyik embernek szemét, a másiknak kincs.*
 ---
 
-## 👥 Csapat – BLU (Biztonságos Lakóhely Unió)
+## 👥 Csapat – BLU 
 
 | GitHub |
 |---|
