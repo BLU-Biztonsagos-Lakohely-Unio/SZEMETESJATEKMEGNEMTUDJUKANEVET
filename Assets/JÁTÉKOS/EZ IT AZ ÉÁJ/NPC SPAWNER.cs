@@ -1,10 +1,12 @@
+using System.Linq;
+using Unity.Mathematics.Geometry;
 using UnityEngine;
 namespace Game.AI
 {
     public class NPCSPAWNER : MonoBehaviour
     {
         [SerializeField]
-        public NPC npc;
+        public NPC[] npc;
         [SerializeField]
         public Arrea Arrea;
         [SerializeField]
@@ -16,7 +18,7 @@ namespace Game.AI
             {
                 Vector3 posi = Arrea.gatrandompoin();
                 Quaternion rot = Quaternion.Euler(0, Random.Range(0, 360), 0);
-                NPC newnpc = Instantiate(npc, posi, rot );
+                NPC newnpc = Instantiate(npc[Random.Range(0,npc.Count())], posi, rot );
                 newnpc.GetComponent<Járkál>().area = Arrea;
             }   
         }
