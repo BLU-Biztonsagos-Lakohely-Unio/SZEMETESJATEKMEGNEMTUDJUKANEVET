@@ -15,7 +15,7 @@ public class Felvétel : MonoBehaviour, IInteractable
     {
         
         Debug.Log("Felvetted: " + gameObject.name);
-        inventory.AddItem(itemPrefab.Data);
+
         Destroy(gameObject);
     }
     

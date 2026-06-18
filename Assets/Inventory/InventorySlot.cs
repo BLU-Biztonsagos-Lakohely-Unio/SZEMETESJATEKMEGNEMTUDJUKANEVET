@@ -1,0 +1,46 @@
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
+public class InventorySlot : MonoBehaviour, IPointerClickHandler
+{
+
+    public InventoryItem myItem { get; set; }
+
+    public SlotTag myTag;
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            if (Inventory.carriedItem == null) return;
+            if(myTag != SlotTag.None && Inventory.carriedItem.myItem.itemTag != myTag) return;
+            SetItem(Inventory.carriedItem);
+        }
+
+    }
+
+    public void SetItem(InventoryItem item)
+    {
+        //abbahagyod a dragelést
+        Inventory.carriedItem= null;
+
+        //reset the slot
+        item.activeSlot.myItem = null;
+
+        //beállítod az új slotot
+
+        myItem = item;
+        myItem.activeSlot = this;
+        myItem.transform.SetParent(transform);
+        myItem.canvasGroup.blocksRaycasts = true;
+
+        if(myTag != SlotTag.None)
+        {
+            Inventory.Singleton.EquipEquipment(myTag,myItem);
+        }
+    }
+
+}

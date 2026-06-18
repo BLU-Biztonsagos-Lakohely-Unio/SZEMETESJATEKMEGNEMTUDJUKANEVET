@@ -1,46 +1,77 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Inventory : MonoBehaviour
 {
-    public int Money;
-    public ItemDataSO[] items = new ItemDataSO[10];
-    //át kéne írni egy List-re mert az egyszerûbb
+    public static Inventory Singleton;
+    public static InventoryItem carriedItem;
+    [SerializeField] InventorySlot[] inventorySlots;
 
-    public void AddItem(ItemDataSO targy)
+    [SerializeField] Transform draggablesTransform;
+    [SerializeField] InventoryItem itemPrefab;
+
+    [Header("Item List")]
+    [SerializeField] Item[] items;
+
+    [Header("Debug")]
+    [SerializeField] Button giveItemBtn;
+
+    void Awake()
     {
-        for (int i = 0; i < items.Length; i++)
+        Singleton = this;
+        giveItemBtn.onClick.AddListener(delegate { spawnInventoryItem(); });
+    }
+
+    public void spawnInventoryItem(Item item = null)
+    {
+        Item _item = item;
+        if (_item == null)
         {
-            if (items[i] == null)
+            int random = Random.Range(0, items.Length);
+            _item = items[random];
+        }
+
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            if (inventorySlots[i].myItem == null)
             {
-                items[i] = targy;
-                Debug.Log("Added item to the inventory: " + targy);
-                return;
+                Instantiate(itemPrefab, inventorySlots[i].transform).Initialize(_item, inventorySlots[i]);
+                break;
             }
         }
+    }
+    void Update()
+    {
+        if (carriedItem == null) return;
 
-    }
-    public void RemoveItem(ItemDataSO targy)
-    {
-        for (int i = 0; i < items.Length; i++)
-        {
-            if (items[i] == targy)
-            {
-                Debug.Log("Item Removed from inventory: " + targy);
-                items[i] = null;
-                return;
-            }
-        }
-    }
-    //teszteléshez
-    public void AddMoney()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            Debug.Log("Added 1000 money to the inventory");
-            Money += 1000;
-        }
-            
+        carriedItem.transform.position = Input.mousePosition;
     }
 
+    public void SetCarriedItem(InventoryItem item)
+    {
+        if (carriedItem != null)
+        {
+            if (item.activeSlot.myTag != SlotTag.None && item.activeSlot.myTag != carriedItem.myItem.itemTag) return;
+            item.activeSlot.SetItem(carriedItem);
+        }
+
+        if (item.activeSlot.myTag != SlotTag.None)
+        {
+            EquipEquipment(item.activeSlot.myTag, null);
+        }
+
+        carriedItem = item;
+        carriedItem.canvasGroup.blocksRaycasts = false;
+        item.transform.SetParent(draggablesTransform);
+
+    }
+
+    public void EquipEquipment(SlotTag tag, InventoryItem item = null)
+    {
+        Debug.Log("Fasz tudja mit csinálm az equipequipment függvény");
+    }
 }
 

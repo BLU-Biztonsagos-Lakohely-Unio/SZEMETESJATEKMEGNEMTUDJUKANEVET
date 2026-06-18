@@ -29,27 +29,7 @@ public class SaleManager : MonoBehaviour, IInteractable
     }
     public int Selling()
     {
-        int money = 0;
-        foreach (var item in inventory.items)
-        {
-            //Debug.Log($"item: {item}, Type: {item.GetType()}");
-            if (item != null)
-            {
-                if (item.CanBeSold)
-                {
-                    money += item.BaseValue;
-                    Debug.Log($"Sold {item.ItemName} to {gameObject.name} for {item.BaseValue}");
-                    inventory.RemoveItem(item);
-                }
-                else
-                {
-                    Debug.Log($"{item.ItemName} cannot be sold to {gameObject.name}");
-                }
-            }
-
-        }
-        inventory.Money += money;
-        Debug.Log($"You sold items for a total of {money} money.");
-        return money;
+        Debug.Log("elbasztam az eladás függvényt");
+        return 0;
     }
 }
